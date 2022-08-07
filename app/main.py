@@ -12,6 +12,6 @@ def read_root():
 
 @app.get("/photos")
 async def get_photos(response: Response, limit: int = 10, offset: int = 1):
-    photos, headers_count = await PhotosProxyApi().get_custom_photos(limit, offset)
+    photos, headers_count = await PhotosProxyApi().get_photos_by_proxy(limit, offset)
     response.headers["X-Total"] = headers_count
     return photos
